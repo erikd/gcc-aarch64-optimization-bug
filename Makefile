@@ -4,9 +4,9 @@ CFLAGS = $(OPT_FLAGS) -Isrc -std=c99 -Wall -Wextra -Wcast-align -Wcast-qual -Wsh
 
 check :
 	rm -f ag_enc.o
-	OPT_FLAGS="-O" make dyn_comp_test && ./dyn_comp_test
+	OPT_FLAGS="-O0" make dyn_comp_test && ./dyn_comp_test
 	rm -f ag_enc.o
-	OPT_FLAGS="-O -fschedule-insns" make dyn_comp_test && ./dyn_comp_test
+	OPT_FLAGS="-O0 -fschedule-insns" make dyn_comp_test && ./dyn_comp_test
 
 dyn_comp_test : dyn_comp_test.o ag_enc.o
 	$(CC) $+ -lm -o $@
