@@ -1,9 +1,9 @@
 # gcc-aarch-optimization-bug
 
-This repo contains code to show a GCC on Aarch64 compiler bug that is present
-in gcc version 4.9.2 (Debian/Linaro 4.9.2-5). The bug seems to be some sort
-of incorrect interaction between the inliner and the `-fschedule-insns` compiler
-flag.
+This repo contains code (from [libsndfile][libsndfile]) to show a GCC on Aarch64
+compiler bug that is present in gcc version 4.9.2 (Debian/Linaro 4.9.2-5). The
+bug seems to be some sort of incorrect interaction between the inliner and the
+`-fschedule-insns` compiler flag.
 
 The repo contains:
 
@@ -55,3 +55,5 @@ program will pass with both sets of compiler flags. Eg on Aarch64:
 I've also test this with Debian's gcc-snapshot (`gcc version 5.0.0 20141118
 (experimental) [trunk revision 217719] (Debian 20141118-1)`) and it does not
 display the problem either.
+
+[libsndfile]: https://github.com/erikd/libsndfile/
