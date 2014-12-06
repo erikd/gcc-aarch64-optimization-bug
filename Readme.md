@@ -22,7 +22,10 @@ On a Debian Aarch64 system you can just run:
 
     CC=gcc-4.9 make clean check
 
-which on my system (a QEMU user space chroot) results in (some lines trimmed):
+which will compile the test program with the two different sets of compiler
+flags, one which passes one which fails.
+On my system (a QEMU user space chroot) the result (with some lines trimmed)
+looks like:
 
     rm -f ag_enc.o
     OPT_FLAGS="-O" make dyn_comp_test && ./dyn_comp_test
@@ -43,8 +46,6 @@ which on my system (a QEMU user space chroot) results in (some lines trimmed):
 
     Checksum value 0x0fb9 : Error, should be 0x1c1c!
 
-which will compile the test program with the two different sets of compiler
-flags, one which passes one which fails.
 
 With gcc-4.8 on Aarch64 or gcc of any version of any other architecture, the
 program will pass with both sets of compiler flags. Eg on Aarch64:
