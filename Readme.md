@@ -22,6 +22,27 @@ On a Debian Aarch64 system you can just run:
 
     CC=gcc-4.9 make clean check
 
+which on my system (a QEMU user space chroot) results in (some lines trimmed):
+
+    rm -f ag_enc.o
+    OPT_FLAGS="-O" make dyn_comp_test && ./dyn_comp_test
+    make[1]: Entering directory '/home/erikd/Git/gcc-aarch64-optimization-bug'
+    gcc-4.9 -O -Isrc -std=c99 -Wcast-align -Wcast-qual -Wshadow .....
+    gcc-4.9 -O -Isrc -std=c99 -Wcast-align -Wcast-qual -Wshadow .....
+    gcc-4.9 dyn_comp_test.o ag_enc.o -lm -o dyn_comp_test
+    make[1]: Leaving directory '/home/erikd/Git/gcc-aarch64-optimization-bug'
+
+    Checksum value 0x1c1c : Correct!
+
+    rm -f ag_enc.o
+    OPT_FLAGS="-O -fschedule-insns" make dyn_comp_test && ./dyn_comp_test
+    make[1]: Entering directory '/home/erikd/Git/gcc-aarch64-optimization-bug'
+    gcc-4.9 -O -fschedule-insns -Isrc -std=c99 -Wcast-align -Wcast-qual .....
+    gcc-4.9 dyn_comp_test.o ag_enc.o -lm -o dyn_comp_test
+    make[1]: Leaving directory '/home/erikd/Git/gcc-aarch64-optimization-bug'
+
+    Checksum value 0x0fb9 : Error, should be 0x1c1c!
+
 which will compile the test program with the two different sets of compiler
 flags, one which passes one which fails.
 
