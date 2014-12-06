@@ -40,7 +40,6 @@ main (void)
 		} ;
 	static uint8_t mWorkBuffer [4 * ALAC_FRAME_LENGTH] ;
 	AGParamRec agParams = { 10, 10, 40, 14, 16383, 472, 16, 16, 255 } ;
-	uint32_t	numBits ;
 	uint32_t 	chanBits = 20, bits1 ;
 	uint16_t	checksum ;
 

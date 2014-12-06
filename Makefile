@@ -1,6 +1,6 @@
 
 CC ?= gcc
-CFLAGS = $(OPT_FLAGS) -Isrc -std=c99 -Wcast-align -Wcast-qual -Wshadow -Wbad-function-cast -Wwrite-strings -Wundef -Wuninitialized -Winit-self -Wnested-externs -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Waggregate-return -Wsequence-point
+CFLAGS = $(OPT_FLAGS) -Isrc -std=c99 -Wall -Wextra -Wcast-align -Wcast-qual -Wshadow -Wbad-function-cast -Wwrite-strings -Wundef -Wuninitialized -Winit-self -Wnested-externs -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Waggregate-return -Wsequence-point
 
 check :
 	rm -f ag_enc.o
